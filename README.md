@@ -1,5 +1,14 @@
 # LLM-Inference
 
+## 提要
+1. 对比**不同硬件**LLM的推理性能影响，如A100、L20等，便于推理显卡选型
+2. 对比**不同推理引擎**对LLM的推理性能影响，如vLLM、lmdeploy、SGLang，便于推理引擎选型
+3. 对比**不同参数**下的推理速度，如7B、14B、32B、57B、72B等，便于LLM参数选型
+4. 对比**不同量化算法**对LLM推理速度的影响，如AWQ、GPTQ等
+
+## 细节
+
+
 - **Qwen2-MoE-57B-A14B-Instruct**, **2**张**A100 80GB**, **vLLM**, prompt_tokens=512, generated_tokens=128
 
 | Benchmark | Requests per Second | Request Latency | Time to First Token | Inter Token Latency | Output Token Throughput |
