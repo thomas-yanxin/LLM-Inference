@@ -7,6 +7,9 @@
 4. 对比**不同量化算法**对LLM推理速度的影响，如AWQ、GPTQ等
 
 ## 细节
+
+
+
 - **Qwen2-7B-Instruct**, **1**张**L20 48GB**, **vLLM**, prompt_tokens=512,generated_tokens=128
 
 | Benchmark | Requests per Second | Request Latency | Time to First Token | Inter Token Latency | Output Token Throughput |
@@ -205,21 +208,23 @@
 | asynchronous@6.78 req/sec | 5.80 req/sec | 15.92 sec | 136.00 ms | 123.56 ms | 740.97 tokens/sec |
 | throughput | 8.55 req/sec | 31.91 sec | 15748.22 ms | 126.71 ms | 1091.59 tokens/sec |
 
-- **Qwen2-MoE-57B-A14B-Instruct**, **2**张**A100 80GB**, **vLLM**, prompt_tokens=512,generated_tokens=128
 
-| Benchmark | Requests per Second | Request Latency | Time to First Token | Inter Token Latency | Output Token Throughput |
-|---|---|---|---|---|---|
-| asynchronous@1.27 req/sec | 0.00 req/sec | 0.00 sec | 0.00 ms | 0.00 ms | 0.00 tokens/sec |
-| synchronous | 0.60 req/sec | 1.67 sec | 108.93 ms | 13.15 ms | 71.04 tokens/sec |
-| asynchronous@2.60 req/sec | 2.44 req/sec | 5.73 sec | 954.26 ms | 42.14 ms | 298.70 tokens/sec |
-| asynchronous@1.94 req/sec | 2.82 req/sec | 20.61 sec | 14455.79 ms | 52.86 ms | 329.48 tokens/sec |
-| asynchronous@3.27 req/sec | 3.15 req/sec | 5.57 sec | 133.07 ms | 46.03 ms | 372.05 tokens/sec |
-| asynchronous@3.94 req/sec | 3.72 req/sec | 6.10 sec | 134.91 ms | 51.34 ms | 432.50 tokens/sec |
-| asynchronous@4.61 req/sec | 4.37 req/sec | 6.74 sec | 135.41 ms | 56.41 ms | 511.91 tokens/sec |
-| asynchronous@5.28 req/sec | 4.99 req/sec | 7.68 sec | 168.68 ms | 64.06 ms | 585.06 tokens/sec |
-| asynchronous@5.95 req/sec | 5.56 req/sec | 8.06 sec | 151.98 ms | 67.87 ms | 648.10 tokens/sec |
-| asynchronous@6.61 req/sec | 6.21 req/sec | 8.89 sec | 224.21 ms | 73.20 ms | 735.18 tokens/sec |
-| throughput | 6.61 req/sec | 12.94 sec | 7201.07 ms | 50.12 ms | 762.60 tokens/sec |
+- **Qwen2-32B-Instruct-AWQ**, **2**张**L20 48GB**, **vLLM**, prompt_tokens=512,generated_tokens=128
+
+| Benchmark                 | Requests per Second | Request Latency | Time to First Token | Inter Token Latency | Output Token Throughput |
+|---------------------------|---------------------|-----------------|---------------------|---------------------|-------------------------|
+| synchronous               | 0.44 req/sec        | 2.27 sec        | 225.39 ms           | 16.05 ms            | 56.11 tokens/sec        |
+| asynchronous@0.82 req/sec | 0.82 req/sec        | 2.55 sec        | 235.56 ms           | 19.57 ms            | 97.13 tokens/sec        |
+| asynchronous@1.21 req/sec | 1.20 req/sec        | 2.90 sec        | 235.44 ms           | 21.88 ms            | 146.46 tokens/sec       |
+| asynchronous@1.59 req/sec | 1.55 req/sec        | 3.35 sec        | 235.99 ms           | 25.42 ms            | 190.31 tokens/sec       |
+| asynchronous@3.89 req/sec | 1.75 req/sec        | 45.47 sec       | 311.75 ms           | 371.55 ms           | 212.65 tokens/sec       |
+| asynchronous@1.97 req/sec | 1.92 req/sec        | 3.78 sec        | 236.75 ms           | 28.93 ms            | 235.27 tokens/sec       |
+| asynchronous@2.35 req/sec | 2.29 req/sec        | 4.45 sec        | 236.93 ms           | 34.54 ms            | 279.77 tokens/sec       |
+| asynchronous@2.74 req/sec | 2.62 req/sec        | 5.69 sec        | 242.73 ms           | 43.51 ms            | 324.87 tokens/sec       |
+| asynchronous@3.12 req/sec | 2.93 req/sec        | 8.20 sec        | 255.08 ms           | 65.15 ms            | 356.81 tokens/sec       |
+| asynchronous@3.50 req/sec | 2.98 req/sec        | 16.14 sec       | 270.50 ms           | 129.27 ms           | 365.16 tokens/sec       |
+| throughput                | 3.89 req/sec        | 66.65 sec       | 37930.00 ms         | 233.16 ms           | 480.06 tokens/sec       |
+
 
 - **Qwen2-32B-Instruct**, **4**张**L20 48GB**, **vLLM**, prompt_tokens=512,generated_tokens=128
 
@@ -284,6 +289,24 @@
 | asynchronous@8.59 req/sec | 6.56 req/sec | 30.26 sec | 595.15 ms | 238.95 ms | 814.02 tokens/sec |
 | asynchronous@9.59 req/sec | 7.72 req/sec | 30.48 sec | 2686.60 ms | 221.47 ms | 966.51 tokens/sec |
 | throughput | 9.59 req/sec | 28.29 sec | 12336.68 ms | 126.95 ms | 1206.04 tokens/sec |
+
+- **Qwen2-MoE-57B-A14B-Instruct**, **2**张**A100 80GB**, **vLLM**, prompt_tokens=512,generated_tokens=128
+
+| Benchmark | Requests per Second | Request Latency | Time to First Token | Inter Token Latency | Output Token Throughput |
+|---|---|---|---|---|---|
+| asynchronous@1.27 req/sec | 0.00 req/sec | 0.00 sec | 0.00 ms | 0.00 ms | 0.00 tokens/sec |
+| synchronous | 0.60 req/sec | 1.67 sec | 108.93 ms | 13.15 ms | 71.04 tokens/sec |
+| asynchronous@2.60 req/sec | 2.44 req/sec | 5.73 sec | 954.26 ms | 42.14 ms | 298.70 tokens/sec |
+| asynchronous@1.94 req/sec | 2.82 req/sec | 20.61 sec | 14455.79 ms | 52.86 ms | 329.48 tokens/sec |
+| asynchronous@3.27 req/sec | 3.15 req/sec | 5.57 sec | 133.07 ms | 46.03 ms | 372.05 tokens/sec |
+| asynchronous@3.94 req/sec | 3.72 req/sec | 6.10 sec | 134.91 ms | 51.34 ms | 432.50 tokens/sec |
+| asynchronous@4.61 req/sec | 4.37 req/sec | 6.74 sec | 135.41 ms | 56.41 ms | 511.91 tokens/sec |
+| asynchronous@5.28 req/sec | 4.99 req/sec | 7.68 sec | 168.68 ms | 64.06 ms | 585.06 tokens/sec |
+| asynchronous@5.95 req/sec | 5.56 req/sec | 8.06 sec | 151.98 ms | 67.87 ms | 648.10 tokens/sec |
+| asynchronous@6.61 req/sec | 6.21 req/sec | 8.89 sec | 224.21 ms | 73.20 ms | 735.18 tokens/sec |
+| throughput | 6.61 req/sec | 12.94 sec | 7201.07 ms | 50.12 ms | 762.60 tokens/sec |
+
+
 
 - **Qwen2-72B-Instruct**, **4**张**L20 48GB**, **vLLM**, prompt_tokens=512, generated_tokens=128
 
