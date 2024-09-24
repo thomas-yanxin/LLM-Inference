@@ -192,6 +192,28 @@
 | asynchronous@3.50 req/sec | 2.92 req/sec | 15.9 sec | 207.36 ms | 116.08 ms | 371.90 tokens/sec |
 | throughput | 3.50 req/sec | 25.43 sec | 213.43 ms | 105.60 ms | 448.10 tokens/sec |
 
+- **Qwen2-14B-Instruct-AWQ**, **1**张**L20 48GB**, **vLLM**, prompt_tokens=512,generated_tokens=128
+
+
+
+- **Qwen2-14B-Instruct-AWQ**, **2**张**L20 48GB**, **vLLM**, prompt_tokens=512,generated_tokens=128
+
+| Benchmark                 | Requests per Second | Request Latency | Time to First Token | Inter Token Latency | Output Token Throughput |
+|---------------------------|---------------------|-----------------|---------------------|---------------------|-------------------------|
+| synchronous               | 0.79 req/sec        | 1.27 sec        | 120.31 ms           | 9.22 ms             | 98.15 tokens/sec        |
+| asynchronous@1.48 req/sec | 1.47 req/sec        | 1.53 sec        | 124.70 ms           | 11.20 ms            | 185.36 tokens/sec       |
+| asynchronous@2.18 req/sec | 2.16 req/sec        | 1.69 sec        | 125.67 ms           | 12.48 ms            | 270.67 tokens/sec       |
+| asynchronous@2.88 req/sec | 2.84 req/sec        | 1.95 sec        | 126.87 ms           | 14.43 ms            | 358.31 tokens/sec       |
+| asynchronous@3.57 req/sec | 3.52 req/sec        | 2.19 sec        | 130.06 ms           | 16.34 ms            | 444.28 tokens/sec       |
+| asynchronous@4.27 req/sec | 4.19 req/sec        | 2.62 sec        | 129.32 ms           | 19.39 ms            | 530.07 tokens/sec       |
+| asynchronous@4.97 req/sec | 4.82 req/sec        | 3.62 sec        | 135.24 ms           | 27.43 ms            | 613.79 tokens/sec       |
+| asynchronous@7.06 req/sec | 4.93 req/sec        | 29.67 sec       | 231.25 ms           | 234.41 ms           | 618.69 tokens/sec       |
+| asynchronous@5.66 req/sec | 5.43 req/sec        | 5.09 sec        | 142.68 ms           | 39.19 ms            | 685.40 tokens/sec       |
+| asynchronous@6.36 req/sec | 5.51 req/sec        | 13.17 sec       | 181.79 ms           | 103.17 ms           | 693.54 tokens/sec       |
+| throughput                | 7.06 req/sec        | 47.93 sec       | 31372.98 ms         | 131.72 ms           | 889.32 tokens/sec       |
+
+
+
 - **Qwen2-14B-Instruct**, **4**张**L20 48GB**, **vLLM**, prompt_tokens=512,generated_tokens=128
 
 | Benchmark | Requests per Second | Request Latency | Time to First Token | Inter Token Latency | Output Token Throughput |
